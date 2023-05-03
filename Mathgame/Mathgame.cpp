@@ -46,44 +46,64 @@ int main()
         cout << "Enter a correct choice";
         main();
     }
-    //operation();
-    add();
-    sub();
-    mul();
-    div();
+    
 }
-//void operation() {
-//    int x;
-//    cout << "\t\t\t\tWhat do you want to play?\n\n";
-//    cout << "\t\t\t\t[1] addition\n";
-//    cout << "\t\t\t\t[2] subtraction\n";
-//    cout << "\t\t\t\t[3] multiplication\n";
-//    cout << "\t\t\t\t[4] division\n\n";
-//
-//    cout << "\t\t\t\tChoice: ";
-//    cin >> x;
-//
-//    switch (x)
-//    {
-//    case 1:
-//        add();
-//        break;
-//    case 2:
-//        sub();
-//        break;
-//    case 3:
-//        mul();
-//        break;
-//    case 4:
-//        div();
-//        break;
-//
-//    default:
-//        cout << "Enter a correct choice";
-//        main();
-//
-//    }
-//}
+void operation() {
+    int x;
+    char back;
+
+    do {
+        system("CLS");
+        cout << "\t\t\t\tWhat do you want to play?\n\n";
+        cout << "\t\t\t\t[1] addition\n";
+        cout << "\t\t\t\t[2] subtraction\n";
+        cout << "\t\t\t\t[3] multiplication\n";
+        cout << "\t\t\t\t[4] division\n\n";
+        cout << "\t\t\t\tChoice: ";
+        cin >> x;
+
+        switch (x) {
+        case 1:
+            add();
+            break;
+
+        case 2:
+            sub();
+            break;
+
+        case 3:
+            mul();
+            break;
+
+        case 4:
+            div();
+            break;
+
+        default:
+            cout << "Enter a correct choice";
+            main();
+        }
+
+        cout << "\nContinue[Y/N]: ";
+        cin >> back;
+        cout << endl << endl;
+
+        if (back != 'Y' && back != 'y' && back != 'N' && back != 'n') {
+            cout << "Please enter a correct choice" << endl;
+            operation();
+        }
+        else if (back == 'N' || back == 'n') {
+            system("pause");
+            system("CLS");
+            main();
+        }
+    } while (back == 'y' || back == 'Y');
+
+    cout << "Thank you";
+    system("pause");
+    system("CLS");
+}
+
 
 void add() {
     //std::ostringstream caclulation_stream;
@@ -98,6 +118,10 @@ void add() {
         sum = x + y;
         if (ans == sum)
             z++;
+        std::ostringstream calculation_stream;
+        calculation_stream << x << " + " << y << " = " << sum;
+        history.push_back(calculation_stream.str());
+
     }
     
 }
@@ -113,6 +137,10 @@ void sub() {
         diff = x - y;
         if (ans == diff)
             z++;
+        std::ostringstream calculation_stream;
+        calculation_stream << x << " - " << y << " = " << diff;
+        history.push_back(calculation_stream.str());
+
     }
     
 }
@@ -128,6 +156,11 @@ void mul() {
         prod = x * y;
         if (ans == prod)
             z++;
+        std::ostringstream calculation_stream;
+        calculation_stream << x << " * " << y << " = " << prod;
+        history.push_back(calculation_stream.str());
+    
+
     }
     
 }
@@ -150,72 +183,16 @@ void div() {
           }
         if (ans == quo)
             z++;
+        std::ostringstream calculation_stream;
+        calculation_stream << x << " + " << y << " = " << quo;
+        history.push_back(calculation_stream.str());
+
     }
     
 }
 void calculator()
 {
-    int x, y;
-    int sum = 0, dif = 0, prod = 1, quo = 1;
-
-    char op, back;
-    do {
-        system("CLS");
-        cout << "\t\t#CALCULATOR#" << endl;
-        cout << endl << endl;
-
-        cout << "Calculate 2 numbers: (example 1 + 1   or 2 * 2  )\n";
-        cin >> x >> op >> y;
-
-        std::ostringstream caclulation_stream;
-        switch (op) {
-        case '+':
-
-            add();
-            break;
-
-        case '-':
-            sub();
-            break;
-
-        case '*':
-            mul();
-            break;
-
-        case '/':
-            div();
-            break;
-
-        default:
-            caclulation_stream << "Invalid operator";
-            break;
-        }
-
-        auto calculation_string = caclulation_stream.str();
-        history.push_back(calculation_string);
-
-        std::cout << calculation_string;
-
-        cout << "\nContinue[Y/N]: ";
-        cin >> back;
-        cout << endl << endl;
-        if (back != 'Y' && back != 'y' && back != 'N' && back != 'n')
-        {
-            cout << "Please enter a correct choice" << endl;
-            choice();
-        }
-        else if (back == 'N' || back == 'n')
-        {
-            system("pause");
-            system("CLS");
-            main();
-        }
-    } while (back == 'y' || back == 'Y'); {
-
-        cout << "Thank you";
-        system("pause");
-        system("CLS");
-    }
+    operation();
 }
 
 
