@@ -116,8 +116,9 @@ void add() {
         cout << "\n\n " << x << " + " << y << " = ";
         cin >> ans;
         sum = x + y;
-        if (ans == sum)
+        if (ans == sum) {
             z++;
+        }
         std::ostringstream calculation_stream;
         calculation_stream << x << " + " << y << " = " << sum;
         history.push_back(calculation_stream.str());
@@ -183,6 +184,7 @@ void div() {
           }
         if (ans == quo)
             z++;
+        
         std::ostringstream calculation_stream;
         calculation_stream << x << " + " << y << " = " << quo;
         history.push_back(calculation_stream.str());
