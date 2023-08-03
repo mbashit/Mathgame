@@ -46,7 +46,7 @@ int main()
         cout << "Enter a correct choice";
         main();
     }
-    
+
 }
 void operation() {
     int x;
@@ -107,7 +107,7 @@ void operation() {
 
 void add() {
     //std::ostringstream caclulation_stream;
-    int x, y, ans,z=0;
+    int x, y, ans, z = 0;
     int sum = 0;
     for (int i = 0; i <= 5; i++)
     {
@@ -117,14 +117,19 @@ void add() {
         cin >> ans;
         sum = x + y;
         if (ans == sum) {
+            cout << " the answer is correct!" << endl;
+
             z++;
+        }
+        else {
+            cout << "wrong answer,the correct answer is  "<< sum << endl;
         }
         std::ostringstream calculation_stream;
         calculation_stream << x << " + " << y << " = " << sum;
         history.push_back(calculation_stream.str());
 
     }
-    
+
 }
 void sub() {
     int x, y, ans, z = 0;
@@ -136,14 +141,19 @@ void sub() {
         cout << "\n\n " << x << " - " << y << " = ";
         cin >> ans;
         diff = x - y;
-        if (ans == diff)
+        if (ans == diff) {
+            cout << " the answer is correct!" << endl;
             z++;
+        }
+        else {
+            cout << "wrong answer,the correct answer is  " << diff <<endl;
+        }
         std::ostringstream calculation_stream;
         calculation_stream << x << " - " << y << " = " << diff;
         history.push_back(calculation_stream.str());
 
     }
-    
+
 }
 void mul() {
     int x, y, ans, z = 0;
@@ -155,42 +165,52 @@ void mul() {
         cout << "\n\n " << x << " * " << y << " = ";
         cin >> ans;
         prod = x * y;
-        if (ans == prod)
+        if (ans == prod) {
+            cout << " the answer is correct!" << endl;
             z++;
+        }
+        else {
+            cout << "wrong answer,the correct answer is " << prod <<endl;
+        }
         std::ostringstream calculation_stream;
         calculation_stream << x << " * " << y << " = " << prod;
         history.push_back(calculation_stream.str());
-    
+
 
     }
-    
+
 }
 void div() {
-    int x, y, ans, z = 0;
-    int quo = 0;
-    for (int i = 0; i <= 5; i++)
+    double x, y, ans, z = 0;
+    double quo = 0;
+    for (double i = 0; i <= 5; i++)
     {
         x = rand() % 11;
         y = rand() % 11;
-        for(int x=1;x <= 100; x++)
+        for (double x = 1; x <= 100; x++)
 
-          if (y == 0) {
-            cout << "undefined";
-          }
-          else {
-              cout << "\n\n " << x << " / " << y << " = ";
-              cin >> ans;
-              quo = x / y;
-          }
-        if (ans == quo)
+            if (y == 0) {
+                cout << "undefined";
+            }
+            else {
+                cout << "\n\n " << x << " / " << y << " = ";
+                cin >> ans;
+                quo = x / y;
+            }
+        if (ans == quo) {
+            cout << " the answer is correct!" << endl;
             z++;
-        
+        }
+        else {
+            cout << "wrong answer,the correct answer is " << quo <<endl;
+        }
+
         std::ostringstream calculation_stream;
         calculation_stream << x << " + " << y << " = " << quo;
         history.push_back(calculation_stream.str());
 
     }
-    
+
 }
 void calculator()
 {
@@ -198,7 +218,7 @@ void calculator()
 }
 
 
-    void choice(){
+void choice() {
     char c;
     cout << "Do you want to continue? [Y/y or N/n]" << endl;
     cin >> c;
@@ -221,7 +241,7 @@ void calculator()
 }
 
 
-void show_history(){
+void show_history() {
     for (const auto& entry : history) {
         std::cout << entry << '\n';
     }
